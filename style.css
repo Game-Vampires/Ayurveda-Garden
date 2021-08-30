@@ -4,7 +4,11 @@ body{
     background-size: cover;
 }
 canvas{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 30%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+#garden-game{
+    background-image: url(/Images/garden-background-vector-4.jpeg);
+    background-repeat: no-repeat;
 }

@@ -1,0 +1,10 @@
+body{
+    background-image: url(/Images/datfukinbackground.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+canvas{
+    border: 1px solid red;
+    margin-left: 30%;
+    margin-top: 10%;
+}

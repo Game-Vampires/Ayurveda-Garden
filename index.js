@@ -11,6 +11,8 @@ const plant = {
   y: 200,
   height: 100 * imgScale,
   width: 100,
+  health: 100,
+  //setInterval(function(){ health -= 2; }, 5000);
 };
 const boy = {
   x: 150,
@@ -47,11 +49,11 @@ lifeBarImage.onload = function () {
 lifeBarImage.src = "/Images/pngfind.com-health-bar-png-769850.png";
 
 function animate() {
-  console.log("animate");
   window.requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below
   ctx.drawImage(boyImage, boy.x, boy.y, boy.width, boy.height);
   ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
+  detectCol(boy, plant);
   ctx.drawImage(
     lifeBarImage,
     lifeBar.x,
@@ -65,7 +67,6 @@ animate();
 // Keys
 
 window.onkeydown = function (e) {
-  console.log(e);
   if (e.key === "ArrowLeft") {
     boy.x -= 10;
   }
@@ -83,3 +84,23 @@ window.onkeydown = function (e) {
 function plantImages() {
   return plants();
 }
+<<<<<<< HEAD
+=======
+function detectCol(rect1, rect2) {
+  //var rect2 = {x: 20, y: 10, width: 10, height: 10}
+
+  if (
+    rect1.x < rect2.x + rect2.width &&
+    rect1.x + rect1.width > rect2.x &&
+    rect1.y < rect2.y + rect2.height &&
+    rect1.y + rect1.height > rect2.y
+  ) {
+    // collision detected!
+    //increase health
+    //stop
+    console.log("colision");
+    // we want to increase the health bar for every 3 seconds you are colliding
+    //setInterval(function(){ health += 5; }, 3000);
+  }
+}
+>>>>>>> 08049ade4304f74fc821c77fd0289fcfdbc57d99

@@ -13,8 +13,6 @@ button.innerHTML = "EASY";
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
-
-
 // 1. Create the button
 var button = document.createElement("button");
 button.innerHTML = "MEDIUM";

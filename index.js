@@ -1,19 +1,19 @@
-<<<<<<< HEAD
 const canvas = document.getElementById("garden-game");
 const ctx = canvas.getContext("2d");
 
 imgScale = 700 / 400;
-
-img.onload = function () {
-  ctx.drawImage(img, 0, 0, 150 * imgScale, 150);
+const boyImage = new Image();
+const boy = {
+  x: 0,
+  y: 0,
+  height: 150 * imgScale,
+  width: 150,
+};
+boyImage.onload = function () {
+  ctx.drawImage(boyImage, boy.x, boy.y, boy.height, boy.width);
 };
 
-img.src = "/Images/garden-background-vector-4.jpeg";
-=======
-
-    const canvas = document.getElementById('garden-game');
-    const ctx = canvas.getContext('2d');
-
+boyImage.src = "/Images/boy_walking.gif";
 
 // Butoons
 
@@ -33,7 +33,6 @@ button.innerHTML = "MEDIUM";
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 
-
 // 1. Create the button
 var button = document.createElement("button");
 button.innerHTML = "HARD";
@@ -44,7 +43,26 @@ body.appendChild(button);
 
 // End of Buttons
 
-const img = new Image();
-img.src = "/Images/frame-pic.jpeg"
+function animate() {
+  console.log("animate");
+  window.requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below
+  ctx.drawImage(boyImage, boy.x, boy.y, boy.width, boy.height);
+}
+animate();
 
->>>>>>> 7e9a232f0b4a7a254d54c39ae39b9343d1b46bda
+window.onkeydown = function (e) {
+  console.log(e);
+  if (e.key === "ArrowLeft") {
+    boy.x -= 10;
+  }
+  if (e.key === "ArrowRight") {
+    boy.x += 10;
+  }
+  if (e.key === "ArrowUp") {
+    boy.y -= 10;
+  }
+  if (e.key === "ArrowDown") {
+    boy.y += 10;
+  }
+};

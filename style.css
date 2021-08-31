@@ -2,6 +2,7 @@ body {
   background-image: url(/Images/datfukinbackground.png);
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
 canvas {
   /* border: 1px solid red; */
@@ -13,7 +14,7 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
 }
-button{
+button {
   margin-top: 20px;
   line-height: 60px;
   font-weight: bold;
@@ -21,7 +22,7 @@ button{
   background: green;
   border: none;
   border-radius: 10%;
-  display:list-item;
+  display: list-item;
 }
 button:hover {
   background: yellow;

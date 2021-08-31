@@ -6,8 +6,6 @@ body {
 }
 canvas {
   /* border: 1px solid red; */
-  margin-left: 23%;
-  margin-top: 10%;
 }
 #garden-game {
   background-image: url(/Images/frame-pic.jpeg);
@@ -22,8 +20,21 @@ button {
   background: green;
   border: none;
   border-radius: 10%;
-  display: list-item;
+  display: flex;
 }
 button:hover {
   background: yellow;
+}
+button.appendChild {
+  display: flex;
+}
+header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

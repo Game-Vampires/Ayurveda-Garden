@@ -6,7 +6,6 @@ const boyImage = new Image();
 const plantImage = new Image();
 const lifeBarImage = new Image();
 
-
 const plant = {
   x: 500,
   y: 200,
@@ -20,13 +19,12 @@ const boy = {
   width: 150,
 };
 const lifeBar = {
-    x: 550,
-    y: 150,
-    height: 50 * imgScale,
-    width: 50,
-  };
+  x: 550,
+  y: 150,
+  height: 50 * imgScale,
+  width: 50,
+};
 
-  
 boyImage.onload = function () {
   ctx.drawImage(boyImage, boy.x, boy.y, boy.height, boy.width);
 };
@@ -38,41 +36,15 @@ plantImage.onload = function () {
 plantImage.src = "/Images/the plant.jpg";
 
 lifeBarImage.onload = function () {
-    ctx.drawImage(lifeBarImage, lifeBar.x, lifeBar.y, lifeBar.height, lifeBar.width);
+  ctx.drawImage(
+    lifeBarImage,
+    lifeBar.x,
+    lifeBar.y,
+    lifeBar.height,
+    lifeBar.width
+  );
 };
 lifeBarImage.src = "/Images/pngfind.com-health-bar-png-769850.png";
-
-
-
-// Butoons
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "EASY";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "MEDIUM";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "HARD";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// End of Buttons
-
-
 
 function animate() {
   console.log("animate");
@@ -80,7 +52,13 @@ function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below
   ctx.drawImage(boyImage, boy.x, boy.y, boy.width, boy.height);
   ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
-  ctx.drawImage(lifeBarImage, lifeBar.x, lifeBar.y, lifeBar.height, lifeBar.width);
+  ctx.drawImage(
+    lifeBarImage,
+    lifeBar.x,
+    lifeBar.y,
+    lifeBar.height,
+    lifeBar.width
+  );
 }
 animate();
 
@@ -102,6 +80,6 @@ window.onkeydown = function (e) {
   }
 };
 
-function plantImages(){
-    return plants();
+function plantImages() {
+  return plants();
 }

@@ -1,14 +1,28 @@
-body{
-    background-image: url(/Images/datfukinbackground.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+  background-image: url(/Images/datfukinbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-canvas{
-    /* border: 1px solid red; */
-    margin-left: 30%;
-    margin-top: 5%;
+canvas {
+  /* border: 1px solid red; */
+  margin-left: 23%;
+  margin-top: 10%;
 }
-#garden-game{
-    background-image: url(/Images/garden-background-vector-4.jpeg);
-    background-repeat: no-repeat;
+#garden-game {
+  background-image: url(/Images/frame-pic.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button{
+  margin-top: 20px;
+  line-height: 60px;
+  font-weight: bold;
+  padding: 0 40px;
+  background: green;
+  border: none;
+  border-radius: 10%;
+  display:list-item;
+}
+button:hover {
+  background: yellow;
 }

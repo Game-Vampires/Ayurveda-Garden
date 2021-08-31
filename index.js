@@ -84,8 +84,6 @@ window.onkeydown = function (e) {
 function plantImages() {
   return plants();
 }
-<<<<<<< HEAD
-=======
 function detectCol(rect1, rect2) {
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
 
@@ -103,4 +101,3 @@ function detectCol(rect1, rect2) {
     //setInterval(function(){ health += 5; }, 3000);
   }
 }
->>>>>>> 08049ade4304f74fc821c77fd0289fcfdbc57d99

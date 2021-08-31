@@ -3,18 +3,28 @@ const ctx = canvas.getContext("2d");
 
 imgScale = 700 / 400;
 const boyImage = new Image();
+const plantImage = new Image();
+const plant = {
+  x: 500,
+  y: 200,
+  height: 100 * imgScale,
+  width: 100,
+};
 const boy = {
-  x: 0,
-  y: 0,
+  x: 150,
+  y: 50,
   height: 150 * imgScale,
   width: 150,
 };
 boyImage.onload = function () {
   ctx.drawImage(boyImage, boy.x, boy.y, boy.height, boy.width);
 };
-
 boyImage.src = "/Images/boy_walking.gif";
 
+plantImage.onload = function () {
+  ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
+};
+plantImage.src = "/Images/the plant.jpg";
 // Butoons
 
 // 1. Create the button
@@ -48,6 +58,7 @@ function animate() {
   window.requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below
   ctx.drawImage(boyImage, boy.x, boy.y, boy.width, boy.height);
+  ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
 }
 animate();
 

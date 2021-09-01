@@ -26,17 +26,27 @@ canvas {
   }
 }
 button {
-  margin-top: 20px;
-  line-height: 60px;
-  font-weight: bold;
-  padding: 0 40px;
-  background: green;
-  border: none;
-  border-radius: 10%;
-  display: list-item;
+  width: 180px;
+  height: 80px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  transition: 0.5s;
+  font-size: 24px;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
 }
 button:hover {
   background: yellow;
+}
+.medium:hover {
+  background: orange;
+}
+.hard:hover {
+  background: red;
+}
+button.appendChild {
+  display: flex;
 }
 
 /* end */

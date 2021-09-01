@@ -15,22 +15,56 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@mixin buttonBG($bg) {
+  border: 2px solid $bg;
+  color: $bg;
+  &:hover {
+    background-color: $bg;
+    transition: all 0.3s ease-in-out;
+  }
+}
 button {
-  margin-top: 20px;
-  line-height: 60px;
-  font-weight: bold;
-  padding: 0 40px;
-  background: green;
-  border: none;
-  border-radius: 10%;
-  display: list-item;
+  width: 180px;
+  height: 80px;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  transition: 0.5s;
+  font-size: 24px;
+  border-radius: 5px;
+  font-family: "Lato", sans-serif;
 }
 button:hover {
-  background: yellow;
+  background: rgb(18, 196, 62);
 }
+.medium:hover {
+  background: orange;
+}
+.hard:hover {
+  background: red;
+}
+button.appendChild {
+  display: flex;
+}
+header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.buttons {
+  width: 30px;
+}
+
+/* timer */
 .Timer{
    justify-content: center;
    position:fixed;
    top: 125px;  
    left:750px;
 }
+/* timerout */

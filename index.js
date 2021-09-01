@@ -48,34 +48,6 @@ lifeBarImage.onload = function () {
 };
 lifeBarImage.src = "/Images/pngfind.com-health-bar-png-769850.png";
 
-// Butoons
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "EASY";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "MEDIUM";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// 1. Create the button
-var button = document.createElement("button");
-button.innerHTML = "HARD";
-
-// 2. Append somewhere
-var body = document.getElementsByTagName("body")[0];
-body.appendChild(button);
-
-// End of Buttons
-
 function animate() {
   window.requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below

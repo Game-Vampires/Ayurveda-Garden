@@ -121,9 +121,9 @@ function detectCol(rect1, rect2) {
     rect1.y < rect2.y + rect2.height &&
     rect1.y + rect1.height > rect2.y
   ) {
-    // collision detected!
-    //increase health
-    //stop
+    boy.x -= 10;
+    boy.y -= 10;
+    //
     console.log("colision");
     // we want to increase the health bar for every 3 seconds you are colliding
     //setInterval(function(){ health += 5; }, 3000);

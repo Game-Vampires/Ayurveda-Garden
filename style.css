@@ -12,6 +12,8 @@ canvas {
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* Buttons easy,medium,hard */
+
 @mixin buttonBG($bg) {
   border: 2px solid $bg;
   color: $bg;
@@ -43,6 +45,9 @@ button:hover {
 button.appendChild {
   display: flex;
 }
+
+/* end */
+
 header {
   display: flex;
   justify-content: center;
@@ -57,6 +62,29 @@ main {
   width: 30px;
 }
 
-/* butooonnnssss */
+/* Moving butons*/
+
+.base {
+  background: grey;
+  display: inline-block;
+  height: 50px;
+  margin-left: 5px;
+  margin-top: 55px;
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.base:before {
+  border-bottom: 35px solid grey;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -35px;
+  width: 0;
+}
 
 /* end of buttons */

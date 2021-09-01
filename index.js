@@ -170,15 +170,19 @@ animate();
 window.onkeydown = function (e) {
     if (e.key === "ArrowLeft") {
         boy.x -= 3;
+        boyImage.src = left;
     }
     if (e.key === "ArrowRight") {
         boy.x += 3;
+        boyImage.src = right;
     }
     if (e.key === "ArrowUp") {
         boy.y -= 3;
+        boyImage.src = up;
     }
     if (e.key === "ArrowDown") {
         boy.y += 3;
+        boyImage.src = down;
 
     }
 };

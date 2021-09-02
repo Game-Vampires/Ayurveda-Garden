@@ -4,17 +4,20 @@ body {
   background-size: cover;
   overflow: hidden;
 }
+/* background to canvas */
 canvas {
   /* border: 1px solid red; */
   margin-left: 1%;
   margin-top: 1%;
 }
+/* canvas, which is given a top and bottom margin to seperate the canvas from the top and bottom of the page */
 
 #garden-game {
   background-image: url(/Images/frame-pic.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* our canvas game background */
 /* Buttons easy,medium,hard */
 
 @mixin buttonBG($bg) {
@@ -24,6 +27,7 @@ canvas {
     background-color: $bg;
     transition: all 0.3s ease-in-out;
   }
+  /* ????? may be what transitions easy, medium, hard to their respective colors */
 }
 button {
   width: 180px;

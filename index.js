@@ -3,11 +3,13 @@ const ctx = canvas.getContext("2d");
 
 imgScale = 700 / 400;
 const boyImage = new Image();
+var timerLimit = 60; // change game timer here
+let score = 1000;
 const plantImage = new Image();
 const lifeBarImage = new Image();
 const rockImage = new Image();
-rockImage.src = `./Images/50-504004_download-rocks-png-images-background-cartoon-rock-no.png`;
-var timerLimit = 60; // change game timer here
+let boywalk = "./Images/boywalk/right/";
+rockImage.src = `./Images/pngegg.png`;
 let playerCanMove = true;
 const plant = {
   x: 500,
@@ -32,8 +34,8 @@ setInterval(() => {
       Math.max(Math.random() * canvas.height, 125),
       canvas.height - 125
     ),
-    height: 50,
-    width: 50,
+    height: 100,
+    width: 100,
     health: 100,
   });
 }, 3000);
@@ -48,8 +50,8 @@ setInterval(() => {
       Math.max(Math.random() * canvas.height, 125),
       canvas.height - 125
     ),
-    height: 30,
-    width: 30,
+    height: 50,
+    width: 50,
     health: 100,
   });
 }, 3000);
@@ -72,9 +74,11 @@ const lifeBar = {
 function animateBoyWalk() {
   if (boyWalkFrame > 10) boyWalkFrame = 1;
 
-  var fileName = "/Images/boywalk_frames/frame" + boyWalkFrame + ".gif";
+  var fileName = boywalk + "frame" + boyWalkFrame + ".gif";
+  console.log(fileName);
   boyImage.src = fileName;
   ctx.drawImage(boyImage, boy.x, boy.y, boy.height, boy.width);
+
   //console.log(fileName);
   boyWalkFrame++;
 
@@ -159,9 +163,11 @@ window.onkeydown = function (e) {
   if (playerCanMove) {
     if (e.key === "ArrowLeft") {
       boy.x -= 30;
+      boywalk = "/Images/boywalk/left/";
     }
     if (e.key === "ArrowRight") {
       boy.x += 30;
+      boywalk = "/Images/boywalk/right/";
     }
     if (e.key === "ArrowUp") {
       boy.y -= 30;
@@ -187,8 +193,9 @@ function detectCol(rect1, rect2) {
     rect1.y + rect1.height > rect2.y
   ) {
     // collision detected!
-    //increase health
+    collectCoins();
     rect2.health++;
+    //boywalk = "/Images/boywalk/water/";
     //stop
     // if right/left side of rectangle is collided with.
     //stop x:speed. if bottom and top is
@@ -220,17 +227,34 @@ function detectColWithRock(rect1, rect2, i) {
     if (!mineRock) {
       playerCanMove = false;
       mineRock = true;
+      //boywalk = "/Images/boywalk/mine/";
       setTimeout(() => {
         playerCanMove = true;
         mineRock = false;
         rocks.splice(i, 1);
+        //boywalk = "/Images/boywalk/right/";
       }, 3000);
     }
-    // boy.x = 0;
-    // boy.y = 0;
-    // we want to increase the health bar for every 3 seconds you are colliding
-    //setInterval(function(){ health += 5; }, 3000);
-  } else {
-    //playerCanMove = true;
   }
 }
+// boy.x = 0;
+// boy.y = 0;
+// we want to increase the health bar for every 3 seconds you are colliding
+//setInterval(function(){ health += 5; }, 3000);
+//   } else {
+//     //playerCanMove = true;
+//   }
+// }
+
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: " + score, 8, 20);
+}
+function collectCoins() {
+  document.getElementById("coins").innerText =
+    "Coins Collected =" + collectCoin;
+  collectCoin += 1;
+  //when plant health increases collect coins. if plant health = 100 collectCoins()
+}
+let collectCoin = 0;

@@ -1,21 +1,15 @@
-
-
 function gameTimer() {
+  document.getElementById("clock").innerText = "Time Left = " + timerLimit;
+  timerLimit -= 1;
+  //console.log(timerLimit);
 
-    document.getElementById('clock').innerText = "Time Left = " + timerLimit;
-    timerLimit -= 1;
-    //console.log(timerLimit);
-
-    if (timerLimit < 0) {
-        stopGameTimer();
-    }
-
+  if (timerLimit < 0) {
+    stopGameTimer();
+  }
 }
 
-
 function stopGameTimer() {
-    clearInterval(mySetIntervalHandler);
-
+  clearInterval(mySetIntervalHandler);
 }
 
 //Game Timer

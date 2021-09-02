@@ -1,0 +1,206 @@
+body {
+  background-image: url(./Images/datfukinbackground.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+canvas {
+  height: 900px;
+  width: 900px;
+  padding-left: 500px;
+  padding-top: 30px;
+  padding-bottom: 250px;
+}
+h1 {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  text-align: center;
+  color: crimson;
+}
+#coins {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  text-align: center;
+  color: darkmagenta;
+  font-size: 25px;
+}
+
+#garden-game {
+  /*background-image: url(/Images/backgroundnew.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Buttons easy,medium,hard */
+
+@mixin buttonBG($bg) {
+  border: 2px solid $bg;
+  color: $bg;
+  &:hover {
+    background-color: $bg;
+    transition: all 0.3s ease-in-out;
+  }
+}
+#button {
+  width: 8vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+/* button:hover {
+    background: green;
+  }
+  .medium:hover {
+    background: orange;
+  }
+  .hard:hover {
+    background: red;
+  } */
+/* button.appendChild {
+    display: flex;
+  } */
+
+/* end */
+
+header {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Moving butons*/
+
+/* .base-up {
+    background: grey;
+    display: inline-block;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 55px;
+    position: relative;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(180deg);
+    margin-left: 30px;
+  }
+  .base-up:before {
+    border-bottom: 35px solid grey;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: -35px;
+    width: 0;
+  }
+  .base-down {
+    background: grey;
+    display: inline-block;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 55px;
+    position: relative;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+  }
+  .base-down:before {
+    border-bottom: 35px solid grey;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: -35px;
+    width: 0; */
+/* }
+  .base-left {
+    background: grey;
+    display: inline-block;
+    height: 50px;
+    margin-left: -55px;
+    margin-top: 55px;
+    position: relative;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(90deg);
+    margin-right: 40px;
+  /* }
+  .base-left:before { */
+/* border-bottom: 35px solid grey;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: -35px;
+    width: 0;
+  }
+  .base-right {
+    background: grey;
+    display: inline-block;
+    height: 50px;
+    margin-left: 5px;
+    margin-top: 55px;
+    position: relative;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-90deg);
+    margin-left: 40px;
+  }
+  
+  .base-right:before {
+    border-bottom: 35px solid grey;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    content: "";
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: -35px;
+    width: 0;
+  } */
+*/
+  /* .up {
+    transform: rotate(180deg);
+    text-align: center;
+  }
+  .left {
+    transform: rotate(-90deg);
+    text-align: center;
+  }
+  .right {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+  .down {
+    text-align: center;
+  }
+  .middle-buttons {
+    display: flex;
+  } */
+  
+  /* end of buttons */
+  /* timer */
+  .Timer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  text-align: center;
+  color: darkred;
+  font-size: 25px;
+  text-decoration: darksalmon;
+}

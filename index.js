@@ -8,6 +8,9 @@ let score = 1000;
 const plantImage = new Image();
 const lifeBarImage = new Image();
 const rockImage = new Image();
+//---------------------------------------------------------------------------------------------------------------
+const pickAxeImage = new Image();
+//----------------------------------------------------------------------------------------------------------------
 let boywalk = "./Images/boywalk/right/";
 rockImage.src = `./Images/pngegg.png`;
 let playerCanMove = true;
@@ -19,7 +22,16 @@ const plant = {
   health: 100,
   //setInterval(function(){ health -= 2; }, 5000);
 };
+//--------------------------------------------------------------------------------------------
+const pickaxe = {
+  height: 50,
+  width: 50,
+};
+// we need to create a function that animates the pick axe over the rock upon collision with
+//the boy. the variable involved are the rock, boy, and pick axe. if rock and boy
+//collide === true, animate pick axe at stone location.
 
+//-----------------------------------------------------------------------------------------------
 const plants = [plant]; //This holds all of our plants
 const rocks = [];
 //Math.min(100, Math.max(50, 9))
@@ -96,7 +108,18 @@ plantImage.onload = function () {
   ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
 };
 plantImage.src = "/Images/PlantCroppedv1.png";
-
+// ---------------------------------------------------------------------------------------------------------
+pickAxeImage.onload = function () {
+  ctx.drawImage(
+    pickAxeImage,
+    pickaxe.x,
+    pickaxe.y,
+    pickaxe.height,
+    pickaxe.width
+  );
+};
+pickAxeImage.src = "/Images/pickaxe.gif";
+// pick Axe -------------------------------------------------------------------------------------------------
 lifeBarImage.onload = function () {
   ctx.drawImage(
     lifeBarImage,
@@ -153,6 +176,13 @@ function animate() {
         lifeBar.height,
         lifeBar.width
     );*/
+  ctx.drawImage(
+    pickAxeImage,
+    pickaxe.x,
+    pickaxe.y,
+    pickaxe.height,
+    pickaxe.width
+  );
 }
 animate();
 
@@ -221,12 +251,15 @@ function detectColWithRock(rect1, rect2, i) {
     //increase health
     //rect2.health++;
     //stop
+    pickaxe.x === rect1.x && pickaxe.y === rect1.y;
     // if right/left side of rectangle is collided with.
     //stop x:speed. if bottom and top is
     console.log("collision with rock");
     if (!mineRock) {
       playerCanMove = false;
       mineRock = true;
+
+      //---------------------------------------------
       //boywalk = "/Images/boywalk/mine/";
       setTimeout(() => {
         playerCanMove = true;

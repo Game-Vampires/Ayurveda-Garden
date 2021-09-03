@@ -5,6 +5,9 @@ function gameTimer() {
 
   if (timerLimit < 0) {
     stopGameTimer();
+    console.log(collectCoin, "gameover");
+
+    location.replace(`endGame.html?score=${collectCoin}`);
   }
 }
 

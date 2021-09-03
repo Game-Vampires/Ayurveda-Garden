@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 imgScale = 700 / 400;
 const boyImage = new Image();
-var timerLimit = 60; // change game timer here
+var timerLimit = 120; // change game timer here
 let score = 1000;
 const plantImage = new Image();
 const lifeBarImage = new Image();
@@ -75,7 +75,7 @@ function animateBoyWalk() {
   if (boyWalkFrame > 10) boyWalkFrame = 1;
 
   var fileName = boywalk + "frame" + boyWalkFrame + ".gif";
-  console.log(fileName);
+
   boyImage.src = fileName;
   ctx.drawImage(boyImage, boy.x, boy.y, boy.height, boy.width);
 
@@ -110,7 +110,6 @@ lifeBarImage.onload = function () {
 lifeBarImage.src = "/Images/pngfind.com-health-bar-png-769850.png";
 
 function animate() {
-  console.log("Boy.y " + boy.y);
   window.requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height); //flip page redraw everything below
   ctx.drawImage(boyImage, boy.x, boy.y, boy.width, boy.height);
@@ -147,14 +146,13 @@ function animate() {
   //drawPlantBattery();
 
   /*ctx.drawImage(
-    lifeBarImage,
-        lifeBar.x,
-        lifeBar.y,
-        lifeBar.height,
-        lifeBar.width
-    );*/
+      lifeBarImage,
+      lifeBar.x,
+      lifeBar.y,
+      lifeBar.height,
+      lifeBar.width
+      );*/
 }
-animate();
 
 // Keys
 
@@ -258,3 +256,16 @@ function collectCoins() {
   //when plant health increases collect coins. if plant health = 100 collectCoins()
 }
 let collectCoin = 0;
+
+document.querySelector("#play").onclick = function () {
+  console.log("?");
+  var gamemusic = new Audio();
+  gamemusic.src = "./sounds/bggamesound.mp3";
+  gamemusic.onload = function (e) {
+    console.log(e);
+    gamemusic.play();
+  };
+  animate();
+  document.querySelector("#play").remove();
+};
+// Music for the game

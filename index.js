@@ -141,6 +141,14 @@ function animate() {
     detectColWithRock(boy, rock, i);
   });
 
+  if (mineRock) {
+    if (boyWalkFrame % 2 == 0) {
+      console.log("minerock, minerock", mineRock, axe, boy.x, boy.y);
+      ctx.drawImage(axe, boy.x + axeSpace, boy.y, 100, 100);
+    } else {
+      ctx.drawImage(axe2, boy.x + axeSpace, boy.y, 100, 100);
+    }
+  }
   //END LOOP
 
   //drawPlantBattery();
@@ -154,7 +162,14 @@ function animate() {
       );*/
 }
 
+let axe = new Image();
+axe.src = "Images/pickaxee/1.gif";
+
+let axe2 = new Image();
+axe2.src = "Images/pickaxee/2.gif";
+
 // Keys
+let axeSpace = boy.width / 2;
 
 window.onkeydown = function (e) {
   console.log("playerCanMove", playerCanMove);
@@ -162,10 +177,12 @@ window.onkeydown = function (e) {
     if (e.key === "ArrowLeft") {
       boy.x -= 30;
       boywalk = "/Images/boywalk/left/";
+      axeSpace = 0;
     }
     if (e.key === "ArrowRight") {
       boy.x += 30;
       boywalk = "/Images/boywalk/right/";
+      axeSpace = boy.width / 2;
     }
     if (e.key === "ArrowUp") {
       boy.y -= 30;
@@ -225,6 +242,7 @@ function detectColWithRock(rect1, rect2, i) {
     if (!mineRock) {
       playerCanMove = false;
       mineRock = true;
+
       //boywalk = "/Images/boywalk/mine/";
       setTimeout(() => {
         playerCanMove = true;
@@ -259,12 +277,10 @@ let collectCoin = 0;
 
 document.querySelector("#play").onclick = function () {
   console.log("?");
-  var gamemusic = new Audio();
-  gamemusic.src = "./sounds/bggamesound.mp3";
-  gamemusic.onload = function (e) {
-    console.log(e);
-    gamemusic.play();
-  };
+  var gamemusic = new Audio(`sounds/bggamesound.mp3`);
+
+  gamemusic.play();
+
   animate();
   document.querySelector("#play").remove();
 };

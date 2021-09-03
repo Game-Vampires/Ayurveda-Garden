@@ -217,7 +217,7 @@ body {
 .text-typing {
   padding: 20px 30px;
   background: #f5f5f5;
-  font-size: 23px;
+  font-size: 15px;
   font-family: monospace;
   border-radius: 50px;
 }
@@ -225,7 +225,7 @@ body {
   margin: 0px;
   white-space: nowrap;
   overflow: hidden;
-  animation: typing 4s steps(22, end) forwards, blink 1s infinite;
+  animation: typing 8s steps(22, end) forwards, blink 2s infinite;
 }
 @keyframes typing {
   0% {
@@ -255,6 +255,6 @@ body {
 .container {
   position: absolute;
   bottom: 20%;
-  left: 150px;
-  right: 150px;
+  /* left: 20px;
+  right: 20px; */
 }

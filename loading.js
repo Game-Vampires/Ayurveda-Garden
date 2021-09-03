@@ -222,4 +222,4 @@ let collectCoin = 0;
 
 setTimeout(function () {
   window.location.href = "index.html";
-}, 7000);
+}, 13000);

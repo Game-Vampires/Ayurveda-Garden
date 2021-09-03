@@ -41,7 +41,7 @@ button {
   font-family: "Lato", sans-serif;
 }
 button:hover {
-  background: yellow;
+  background: green;
 }
 .medium:hover {
   background: orange;
@@ -49,9 +49,9 @@ button:hover {
 .hard:hover {
   background: red;
 }
-button.appendChild {
+/* button.appendChild {
   display: flex;
-}
+} */
 
 /* end */
 
@@ -71,7 +71,7 @@ main {
 
 /* Moving butons*/
 
-.base {
+.base-up {
   background: grey;
   display: inline-block;
   height: 50px;
@@ -81,8 +81,10 @@ main {
   width: 100px;
   display: flex;
   flex-direction: column;
+  transform: rotate(180deg);
+  margin-left: 30px;
 }
-.base:before {
+.base-up:before {
   border-bottom: 35px solid grey;
   border-left: 50px solid transparent;
   border-right: 50px solid transparent;
@@ -93,5 +95,101 @@ main {
   top: -35px;
   width: 0;
 }
+.base-down {
+  background: grey;
+  display: inline-block;
+  height: 50px;
+  margin-left: 5px;
+  margin-top: 55px;
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+}
+.base-down:before {
+  border-bottom: 35px solid grey;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -35px;
+  width: 0;
+}
+.base-left {
+  background: grey;
+  display: inline-block;
+  height: 50px;
+  margin-left: -55px;
+  margin-top: 55px;
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(90deg);
+  margin-right: 40px;
+}
+.base-left:before {
+  border-bottom: 35px solid grey;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -35px;
+  width: 0;
+}
+.base-right {
+  background: grey;
+  display: inline-block;
+  height: 50px;
+  margin-left: 5px;
+  margin-top: 55px;
+  position: relative;
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  transform: rotate(-90deg);
+  margin-left: 40px;
+}
+
+.base-right:before {
+  border-bottom: 35px solid grey;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  top: -35px;
+  width: 0;
+}
+.up {
+  transform: rotate(180deg);
+  text-align: center;
+}
+.left {
+  transform: rotate(-90deg);
+  text-align: center;
+}
+.right {
+  transform: rotate(90deg);
+  text-align: center;
+}
+.down {
+  text-align: center;
+}
+.middle-buttons {
+  display: flex;
+}
 
 /* end of buttons */
+
+.Timer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}

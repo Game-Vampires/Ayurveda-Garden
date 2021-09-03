@@ -171,6 +171,22 @@ function animate() {
       ctx.drawImage(axe2, boy.x + axeSpace, boy.y, 100, 100);
     }
   }
+  // if (waterPlant) {
+  //   if (boyWalkFrame % 2 == 0) {
+  //     console.log(
+  //       "waterplant, waterplant",
+  //       waterPlant,
+  //       wateringCan,
+  //       boy.x,
+  //       boy.y
+  //     );
+  //     ctx.drawImage(wateringCan, boy.x + wcspace, boy.y, 100, 100);
+  //   } else {
+  //     ctx.drawImage(wateringCan2, boy.x + wcspace, boy.y, 100, 100);
+  //   }
+  // }
+
+  /////this spot
   //END LOOP
 
   //drawPlantBattery();
@@ -199,6 +215,7 @@ axe2.src = "Images/pickaxee/2.gif";
 
 // Keys
 let axeSpace = boy.width / 2;
+let wcspace = boy.width / 2;
 
 window.onkeydown = function (e) {
   console.log("playerCanMove", playerCanMove);
@@ -207,11 +224,20 @@ window.onkeydown = function (e) {
       boy.x -= 30;
       boywalk = "/Images/boywalk/left/";
       axeSpace = 0;
+      wcspace = 0;
+      wateringCan.src = "./Images/watering-can/1.gif";
+
+      wateringCan2.src = "./Images/watering-can/2.gif";
     }
     if (e.key === "ArrowRight") {
       boy.x += 30;
       boywalk = "/Images/boywalk/right/";
       axeSpace = boy.width / 2;
+      wcspace = boy.width / 2;
+
+      wateringCan.src = "./Images/wateringLeft/1L.gif";
+
+      wateringCan2.src = "./Images/wateringLeft/2L.gif";
     }
     if (e.key === "ArrowUp") {
       boy.y -= 30;
@@ -226,29 +252,32 @@ function plantImages() {
   return plants();
 }
 
+let space = 0;
+
 let wateringCan = new Image();
-wateringCan.src = "./Images/watering-can/1.gif";
+wateringCan.src = "./Images/wateringLeft/1L.gif";
 
 let wateringCan2 = new Image();
-wateringCan2.src = "./Images/watering-can/2.gif";
-
+wateringCan2.src = "./Images/wateringLeft/2L.gif";
+let waterPlant = false;
 function detectCol(rect1, rect2) {
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
   // define image stop. define values that make image
   //stop.
+
   if (
     rect1.x < rect2.x + rect2.width &&
     rect1.x + rect1.width > rect2.x &&
     rect1.y < rect2.y + rect2.height &&
     rect1.y + rect1.height > rect2.y
   ) {
-    // collision detected!
+    waterplant = true;
     collectCoins();
     rect2.health++;
     if (boyWalkFrame % 2 == 0) {
-      ctx.drawImage(wateringCan2, boy.x, boy.y, 50, 50);
+      ctx.drawImage(wateringCan2, boy.x + wcspace, boy.y, 80, 80);
     } else {
-      ctx.drawImage(wateringCan, boy.x, boy.y, 50, 50);
+      ctx.drawImage(wateringCan, boy.x + wcspace, boy.y, 80, 80);
     }
     //boywalk = "/Images/boywalk/water/";
     //stop
@@ -281,8 +310,8 @@ function detectColWithRock(rect1, rect2, i) {
     //stop x:speed. if bottom and top is
     console.log("collision with rock");
 
-    rocks[i].width -= 0.5;
-    rocks[i].height -= 0.5;
+    rocks[i].width -= 0.3;
+    rocks[i].height -= 0.3;
     if (!mineRock) {
       playerCanMove = false;
       mineRock = true;

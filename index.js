@@ -14,14 +14,14 @@ const pickAxeImage = new Image();
 let boywalk = "./Images/boywalk/right/";
 rockImage.src = `./Images/pngegg.png`;
 let playerCanMove = true;
-const plant = {
-  x: 500,
-  y: 200,
-  height: 50,
-  width: 50,
-  health: 100,
-  //setInterval(function(){ health -= 2; }, 5000);
-};
+// const plant = {
+//   x: 500,
+//   y: 200,
+//   height: 50,
+//   width: 50,
+//   health: 100,
+//   //setInterval(function(){ health -= 2; }, 5000);
+// };
 //--------------------------------------------------------------------------------------------
 const pickaxe = {
   height: 50,
@@ -32,7 +32,7 @@ const pickaxe = {
 //collide === true, animate pick axe at stone location.
 
 //-----------------------------------------------------------------------------------------------
-const plants = [plant]; //This holds all of our plants
+const plants = []; //This holds all of our plants
 const rocks = [];
 //Math.min(100, Math.max(50, 9))
 
@@ -62,8 +62,8 @@ setInterval(() => {
       Math.max(Math.random() * canvas.height, 125),
       canvas.height - 125
     ),
-    height: 50,
-    width: 50,
+    height: 150,
+    width: 150,
     health: 100,
   });
 }, 3000);
@@ -104,9 +104,6 @@ window.onload = function () {
   setInterval(animateBoyWalk, 100);
 };
 
-plantImage.onload = function () {
-  ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
-};
 plantImage.src = "/Images/PlantCroppedv1.png";
 // ---------------------------------------------------------------------------------------------------------
 pickAxeImage.onload = function () {
@@ -141,6 +138,8 @@ function animate() {
 
   plants.forEach((plant) => {
     plant.health = Math.max(Math.min((plant.health -= 0.11), 100), 0);
+    plant.height = plant.health;
+    plant.width = plant.health;
 
     if (plant.health > 0) {
       ctx.drawImage(plantImage, plant.x, plant.y, plant.height, plant.width);
@@ -227,6 +226,12 @@ function plantImages() {
   return plants();
 }
 
+let wateringCan = new Image();
+wateringCan.src = "./Images/watering-can/1.gif";
+
+let wateringCan2 = new Image();
+wateringCan2.src = "./Images/watering-can/2.gif";
+
 function detectCol(rect1, rect2) {
   //var rect2 = {x: 20, y: 10, width: 10, height: 10}
   // define image stop. define values that make image
@@ -240,6 +245,11 @@ function detectCol(rect1, rect2) {
     // collision detected!
     collectCoins();
     rect2.health++;
+    if (boyWalkFrame % 2 == 0) {
+      ctx.drawImage(wateringCan2, boy.x, boy.y, 50, 50);
+    } else {
+      ctx.drawImage(wateringCan, boy.x, boy.y, 50, 50);
+    }
     //boywalk = "/Images/boywalk/water/";
     //stop
     // if right/left side of rectangle is collided with.
@@ -266,14 +276,18 @@ function detectColWithRock(rect1, rect2, i) {
     //increase health
     //rect2.health++;
     //stop
-    pickaxe.x === rect1.x && pickaxe.y === rect1.y;
+
     // if right/left side of rectangle is collided with.
     //stop x:speed. if bottom and top is
     console.log("collision with rock");
+
+    rocks[i].width -= 0.5;
+    rocks[i].height -= 0.5;
     if (!mineRock) {
       playerCanMove = false;
       mineRock = true;
 
+      console.log(rocks[i]);
       //boywalk = "/Images/boywalk/mine/";
       setTimeout(() => {
         playerCanMove = true;
